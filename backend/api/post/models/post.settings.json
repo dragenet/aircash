@@ -36,10 +36,14 @@
       "required": false,
       "pluginOptions": {}
     },
-    "tags": {
-      "via": "posts",
+    "Tags": {
       "collection": "tags",
+      "via": "posts",
       "dominant": true
+    },
+    "Author": {
+      "via": "Posts",
+      "model": "authors"
     }
   }
 }

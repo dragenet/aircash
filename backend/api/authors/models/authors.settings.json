@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "authors",
+  "info": {
+    "name": "Authors",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "Contact_email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "Profile_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Bio": {
+      "type": "richtext"
+    },
+    "Facebook_link": {
+      "type": "string"
+    },
+    "Instagram_link": {
+      "type": "string"
+    },
+    "Twitter_link": {
+      "type": "string"
+    },
+    "Posts": {
+      "collection": "post",
+      "via": "Author"
+    },
+    "CMS_user": {
+      "plugin": "admin",
+      "model": "user"
+    }
+  }
+}
