@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "docker:build": "docker-compose build",
-    "docker:start": "docker-compose up",
+    "dev:build": "docker-compose build",
+    "dev:start": "docker-compose up",
     "docker:killall": "node scripts/stop-all-containers.mjs"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dockerode": "^3.3.1",
-    "dockerode-compose": "^1.2.2"
+    "dockerode": "3.3.1",
+    "dockerode-compose": "1.2.2"
   }
 }
