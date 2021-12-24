@@ -3,38 +3,9 @@ services:
   frontend: 
     build:
       context: .
-      dockerfile: ./compose/frontend/Dockerfile.dev
+      dockerfile: compose/frontend/Dockerfile
     volumes:
       - ./frontend:/app
     ports:
       - '3000:3000'
-  strapi:
-    image: strapi/strapi
-    environment:
-      DATABASE_CLIENT: postgres
-      DATABASE_NAME: strapi
-      DATABASE_HOST: postgres
-      DATABASE_PORT: 5432
-      DATABASE_USERNAME: strapi
-      DATABASE_PASSWORD: strapi
-    volumes:
-      - ./backend:/srv/app
-    ports:
-      - '1337:1337'
-    depends_on:
-      - postgres
-      - mailhog
-
-  postgres:
-    image: postgres
-    environment:
-      POSTGRES_DB: strapi
-      POSTGRES_USER: strapi
-      POSTGRES_PASSWORD: strapi
-  
-  mailhog:
-    image: mailhog/mailhog
-    ports:
-      - '8025:8025'
-
  
