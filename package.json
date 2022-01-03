@@ -1,16 +1,24 @@
 {
   "name": "aircash",
+  "private": true,
   "version": "1.0.0",
   "description": "",
+  "workspaces": [
+    "aircash-frontend",
+    "aircash-scripts"
+  ],
   "scripts": {
     "dev:build": "docker-compose build",
     "dev:start": "docker-compose up",
-    "docker:killall": "node scripts/stop-all-containers.mjs"
+    "docker:killall": "yarn aircash-scripts docker:killall",
+    "fe": "yarn workspace aircash-frontend",
+    "scripts": "yarn workspace aircash-scripts",
+    "clean": "rimraf node_modules"
   },
   "author": "",
   "license": "ISC",
+  "packageManager": "yarn@3.1.1",
   "dependencies": {
-    "dockerode": "3.3.1",
-    "dockerode-compose": "1.2.2"
+    "rimraf": "^3.0.2"
   }
 }
