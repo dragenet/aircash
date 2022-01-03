@@ -2,7 +2,7 @@ import Dockerode from 'dockerode';
 import { launchDockerCompose, filterAircashContainers} from './utils/index.mjs'
 
 const containerPrefix = 'aircash'
-const expectedContainers = ['frontend', 'strapi', 'mailhog', 'postgres']
+const expectedContainers = ['aircash-frontend', 'strapi', 'mailhog', 'postgres']
 const getAircashContainerRegex = (containerPrefix, containerNames) => new RegExp(`/${containerPrefix}_${containerNames}_.`)
 const aircashContainersRegex = getAircashContainerRegex(containerPrefix, `(?:${expectedContainers.join('|')})`)
 

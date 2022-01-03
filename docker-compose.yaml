@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: compose/frontend/Dockerfile
     volumes:
-      - ./frontend:/app
+      - ./aircash-frontend:/app
     ports:
       - '3000:3000'
  
