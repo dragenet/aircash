@@ -25,6 +25,7 @@ jobs:
         run: yarn fe build
       - name: Copy built app to staging server
         uses: appleboy/scp-action@master
+        with:
           host: ${{ secrets.STAGING_HOST_NAME }}
           username: ${{ secrets.STAGING_USER }}
           key: ${{ secrets.STAGING_SSH_KEY }}
