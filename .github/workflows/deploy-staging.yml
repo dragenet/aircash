@@ -29,5 +29,6 @@ jobs:
           username: ${{ secrets.STAGING_USER }}
           key: ${{ secrets.STAGING_SSH_KEY }}
           port: ${{ secrets.PORT }}
+          command_timeout: 2m
           source: "./aircash-frontend/.next"
           target: "./aircash"
