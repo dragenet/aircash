@@ -3,11 +3,12 @@
 name: Lint and Test
 
 # Controls when the workflow will run
-on: [
-  push,
-  pull_request,
-  workflow_dispatch
-]
+on:
+  push:
+    branches:
+      -   master
+  pull_request:
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,6 +20,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 'lts/gallium'
+      - name: Install Yarn
+        run: npm install -g yarn && yarn set version berry
       - name: Install dependencies
         run: yarn
       - name: Lint frontend
