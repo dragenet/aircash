@@ -19,15 +19,17 @@ jobs:
       - name: Install Yarn
         run: npm install -g yarn
       - name: Install dependencies
-        run: yarn
+        run: yarn ci:install
       - name: Build app
-        run: yarn fe build
+        run: yarn ci:build
+      - name: Build app dist
+        run: yarn ci:dist-build
       - name: Copy built app to staging server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.STAGING_HOST_NAME }}
-          username: ${{ secrets.STAGING_USER }}
+          username: ${{ secrets.STAGING_SSH_USER }}
           key: ${{ secrets.STAGING_SSH_KEY }}
-          port: ${{ secrets.PORT }}
-          source: "./aircash-frontend/.next"
+          port: ${{ secrets.STAGING_SSH_PORT }}
+          source: "./dist"
           target: "app"
