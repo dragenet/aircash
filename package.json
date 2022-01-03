@@ -13,12 +13,16 @@
     "docker:killall": "yarn aircash-scripts docker:killall",
     "fe": "yarn workspace aircash-frontend",
     "scripts": "yarn workspace aircash-scripts",
-    "clean": "rimraf node_modules"
+    "clean": "rimraf node_modules",
+    "ci:install": "yarn install --frozen-lockfile",
+    "ci:build": "yarn fe build",
+    "ci:dist-build": "copy package.json ./dist && copy aircash-scripts/* ./dist && copy aircash-frontend/.next/* ./dist && copy aircash-frontend/package.json ./dist"
   },
   "author": "",
   "license": "ISC",
   "packageManager": "yarn@3.1.1",
-  "dependencies": {
+  "devDependencies": {
+    "copy": "^0.3.2",
     "rimraf": "^3.0.2"
   }
 }
