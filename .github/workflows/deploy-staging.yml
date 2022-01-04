@@ -32,4 +32,4 @@ jobs:
           key: ${{ secrets.STAGING_SSH_KEY }}
           port: ${{ secrets.STAGING_SSH_PORT }}
           source: "./dist"
-          target: "app"
+          target: "/srv/microservices/aircash-staging/"
