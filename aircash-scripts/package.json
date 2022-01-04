@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "docker:killall": "node ./stop-all-containers.mjs",
-    "dist-build": "bash dist-build.sh"
+    "dist-build": "bash dist-build.sh",
+    "staging:deploy": "bash deploy-staging-vps.sh"
   },
   "dependencies": {
     "dockerode": "3.3.1",

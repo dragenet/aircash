@@ -10,10 +10,12 @@
   "scripts": {
     "dev:build": "docker-compose build",
     "dev:start": "docker-compose up",
+    "staging:deploy": "yarn scripts staging:deploy",
+    "docker:build-prod": "docker-compose build",
     "docker:killall": "yarn aircash-scripts docker:killall",
     "fe": "yarn workspace aircash-frontend",
     "scripts": "yarn workspace aircash-scripts",
-    "clean": "rimraf node_modules",
+    "clean": "rimraf node_modules && rimraf dist && yarn fe clean",
     "ci:install": "yarn install --frozen-lockfile",
     "ci:build": "yarn fe build",
     "ci:dist-build": "yarn scripts dist-build"

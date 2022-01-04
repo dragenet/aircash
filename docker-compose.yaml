@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: compose/frontend/Dockerfile
+      target: dev
     volumes:
       - ./aircash-frontend:/app
     ports:
