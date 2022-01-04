@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docker:killall": "node ./stop-all-containers.mjs"
+    "docker:killall": "node ./stop-all-containers.mjs",
+    "dist-build": "bash dist-build.sh"
   },
   "dependencies": {
     "dockerode": "3.3.1",

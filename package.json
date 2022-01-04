@@ -16,7 +16,7 @@
     "clean": "rimraf node_modules",
     "ci:install": "yarn install --frozen-lockfile",
     "ci:build": "yarn fe build",
-    "ci:dist-build": "copy package.json ./dist && copy aircash-scripts/* ./dist && copy aircash-frontend/.next/* ./dist && copy aircash-frontend/package.json ./dist"
+    "ci:dist-build": "yarn scripts dist-build"
   },
   "author": "",
   "license": "ISC",
