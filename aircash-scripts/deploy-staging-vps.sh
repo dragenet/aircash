@@ -15,7 +15,7 @@ sudo systemctl stop aircash-staging-ms
 rm -rf app
 
 # setup new installation
-mv dist app
+cp dist app
 cd app
 
 # prepare docker container and run
