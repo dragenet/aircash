@@ -2,6 +2,11 @@
 
 INSTALLATION_DIR=${1:-'/srv/microservices/aircash-staging'}
 
+
+# system setup
+nvm install --lts
+npm install -g yarn
+
 cd $INSTALLATION_DIR
 
 # remove old installation
