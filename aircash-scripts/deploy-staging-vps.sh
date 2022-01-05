@@ -2,6 +2,7 @@
 
 INSTALLATION_DIR=${1:-'/srv/microservices/aircash-staging'}
 
+/bin/su aircash-ms - -c
 
 # system setup
 nvm install --lts
