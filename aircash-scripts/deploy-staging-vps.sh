@@ -11,11 +11,11 @@ npm install -g yarn
 cd $INSTALLATION_DIR
 
 # remove old installation
-sudo systemctl stop aircash-staging-ms
+sudo systemctl stop ms-aircash-staging
 rm -rf app
 
 # setup new installation
-cp dist app
+mv dist app
 cd app
 
 # prepare docker container and run
