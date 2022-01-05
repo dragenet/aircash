@@ -10,18 +10,19 @@
   "scripts": {
     "dev:build": "docker-compose build",
     "dev:start": "docker-compose up",
+    "staging:deploy": "yarn scripts staging:deploy",
+    "docker:build-staging": "docker-compose -p aircash_staging build",
     "docker:killall": "yarn aircash-scripts docker:killall",
     "fe": "yarn workspace aircash-frontend",
     "scripts": "yarn workspace aircash-scripts",
-    "clean": "rimraf node_modules",
+    "clean": "rimraf node_modules && rimraf dist && yarn fe clean",
     "ci:install": "yarn install --frozen-lockfile",
     "ci:build": "yarn fe build",
-    "ci:dist-build": "copy package.json ./dist && copy aircash-scripts/* ./dist && copy aircash-frontend/.next/* ./dist && copy aircash-frontend/package.json ./dist"
+    "ci:dist-build": "yarn scripts dist-build"
   },
   "author": "",
   "license": "ISC",
-  "packageManager": "yarn@3.1.1",
-  "devDependencies": {
+  "dependencies": {
     "copy": "^0.3.2",
     "rimraf": "^3.0.2"
   }
