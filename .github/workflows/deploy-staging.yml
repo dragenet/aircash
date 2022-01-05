@@ -33,3 +33,13 @@ jobs:
           port: ${{ secrets.STAGING_SSH_PORT }}
           source: "./dist"
           target: "/srv/microservices/aircash-staging/"
+      - name: multiple command
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.STAGING_HOST_NAME }}
+          username: ${{ secrets.STAGING_SSH_USER }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          port: ${{ secrets.STAGING_SSH_PORT }}
+          script: |
+            cd /srv/microservices/aircash-staging/dist
+            yarn staging:deploy
