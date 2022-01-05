@@ -11,7 +11,7 @@
     "dev:build": "docker-compose build",
     "dev:start": "docker-compose up",
     "staging:deploy": "yarn scripts staging:deploy",
-    "docker:build-prod": "docker-compose build",
+    "docker:build-staging": "docker-compose -p aircash_staging build",
     "docker:killall": "yarn aircash-scripts docker:killall",
     "fe": "yarn workspace aircash-frontend",
     "scripts": "yarn workspace aircash-scripts",

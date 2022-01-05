@@ -5,8 +5,7 @@ RUN apk add --no-cache libc6-compat
 FROM base as prod-deps
 WORKDIR /app
 COPY ./aircash-frontend ./
-# RUN yarn install --prod --frozen-lockfile 
-COPY ./node_modules ./node_modules
+RUN yarn install --prod --frozen-lockfile 
 
 FROM prod-deps as prod
 EXPOSE 3000
@@ -15,8 +14,7 @@ CMD ["yarn", "start"]
 FROM base as dev-deps
 WORKDIR /app
 COPY ./aircash-frontend/package.json ./
-#RUN yarn install --frozen-lockfile
-COPY ./node_modules ./
+RUN yarn install --frozen-lockfile
 
 FROM dev-deps as dev
 EXPOSE 3000

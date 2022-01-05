@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# INSTALLATION_DIR= $1 or '/srv/microservices/aircash-staging'
+INSTALLATION_DIR=${1:-'/srv/microservices/aircash-staging'}
 
-cd $1
+cd $INSTALLATION_DIR
 
 # remove old installation
-#systemctl stop aircash-staging-ms
+sudo systemctl stop aircash-staging-ms
 rm -rf app
 
 # setup new installation
@@ -13,7 +13,8 @@ mv dist app
 cd app
 
 # prepare docker container and run
-yarn docker:build-prod
-#systemctl start aircash-staging-ms
-docker-compose up
+yarn docker:build-staging
+sudo systemctl enable ms-aircash-staging
+sudo systemctl start ms-aircash-staging
+# docker-compose -p aircash_staging up 
 
